@@ -1,0 +1,27 @@
+Package: brtps
+Type: Package
+Title: Bayesian Regularized Thin Plate Splines for Spatial Data
+Version: 0.0.0.9000
+Authors@R: c(
+    person("Joaquin", "Cavieres", , "joaquin.cavieres@imng.uni-stuttgart.de",
+           role = c("aut", "cre")),
+    person("Giovanni", "Tasso", role = "aut")
+  )
+Description: Fits Bayesian spatial regression models in which the spatial
+    random field is approximated with the regularized thin plate spline
+    ('regTPS') construction of Cavieres and Krumscheid (2026)
+    <doi:10.1007/s11222-026-10990-x>. Models are written in 'TMB' and
+    posterior inference uses the sparse no-U-turn sampler of 'SparseNUTS'.
+License: GPL (>= 3)
+URL: https://github.com/giovannitasso/brtps
+BugReports: https://github.com/giovannitasso/brtps/issues
+Depends:
+    R (>= 4.1.0)
+Imports:
+    TMB (>= 1.9.0)
+LinkingTo:
+    RcppEigen,
+    TMB
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
