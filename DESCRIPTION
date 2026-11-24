@@ -10,18 +10,40 @@ Authors@R: c(
 Description: Fits Bayesian spatial regression models in which the spatial
     random field is approximated with the regularized thin plate spline
     ('regTPS') construction of Cavieres and Krumscheid (2026)
-    <doi:10.1007/s11222-026-10990-x>. Models are written in 'TMB' and
-    posterior inference uses the sparse no-U-turn sampler of 'SparseNUTS'.
+    <doi:10.1007/s11222-026-10990-x>. The field is a truncated
+    Karhunen-Loeve expansion built from the eigendecomposition of the thin
+    plate spline penalty matrix, sampled with a non-centred
+    parameterization. Models are written in 'TMB'; posterior inference uses
+    the sparse no-U-turn sampler of 'SparseNUTS', with 'tmbstan' and a
+    Laplace approximation as alternatives.
 License: GPL (>= 3)
 URL: https://github.com/giovannitasso/brtps
 BugReports: https://github.com/giovannitasso/brtps/issues
 Depends:
     R (>= 4.1.0)
 Imports:
-    TMB (>= 1.9.0)
+    graphics,
+    mgcv,
+    posterior,
+    stats,
+    TMB (>= 1.9.0),
+    utils
 LinkingTo:
     RcppEigen,
     TMB
+Suggests:
+    bayesplot,
+    callr,
+    future,
+    loo,
+    rstan,
+    SparseNUTS,
+    testthat (>= 3.0.0),
+    tmbstan
+Remotes:
+    noaa-afsc/SparseNUTS
+Config/testthat/edition: 3
 Encoding: UTF-8
+LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1

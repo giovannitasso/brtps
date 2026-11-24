@@ -2,14 +2,26 @@
 % Please edit documentation in R/brtps-package.R
 \docType{package}
 \name{brtps-package}
-\alias{brtps}
 \alias{brtps-package}
 \title{brtps: Bayesian Regularized Thin Plate Splines}
 \description{
 Bayesian spatial models in which the spatial random field is approximated
 with the regularized thin plate spline (regTPS) approach of Cavieres and
-Krumscheid (2026).
+Krumscheid (2026). The main function is \code{\link[=brtps]{brtps()}}; the spatial component is
+specified with \code{\link[=regtps_s]{regtps_s()}} and priors with \code{\link[=brtps_priors]{brtps_priors()}}.
 }
+\section{How the package is organised}{
+
+\itemize{
+\item \code{R/regtps_s.R} and \code{src/brtps/regtps_s.hpp}: the spatial model (the R
+side builds the basis, the C++ side evaluates the posterior).
+\item \code{R/families.R} and \code{src/brtps/families.hpp}: likelihoods.
+\item \code{R/priors.R} and \code{src/brtps/priors.hpp}: prior densities.
+\item \code{R/engines.R}: samplers ('SparseNUTS', 'tmbstan', Laplace).
+\item \code{R/methods.R}: summaries, predictions and draws.
+}
+}
+
 \references{
 Cavieres, J. and Krumscheid, S. (2026). regTPS: a novel
 approach to approximate a Gaussian random field for Bayesian spatial
